@@ -8,6 +8,7 @@
 	],
 	"command": "ffdec.sh",
 	"finish-args": [
+		"--share=ipc",
 		"--socket=pulseaudio",
 		"--socket=x11",
 		"--env=PATH=/app/bin:/app/jre/bin:/usr/bin",
