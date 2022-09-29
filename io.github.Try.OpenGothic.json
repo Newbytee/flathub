@@ -1,0 +1,73 @@
+{
+	"app-id": "io.github.Try.OpenGothic",
+	"runtime": "org.freedesktop.Platform",
+	"runtime-version": "22.08",
+	"sdk": "org.freedesktop.Sdk",
+	"sdk-extensions": [
+		"org.freedesktop.Sdk.Extension.rust-stable"
+	],
+	"finish-args": [
+		"--socket=x11",
+		"--socket=pulseaudio",
+		"--device=dri"
+	],
+	"modules": [
+		{
+			"name": "launchopengothic",
+			"buildsystem": "simple",
+			"build-options": {
+				"append-path": "/usr/lib/sdk/rust-stable/bin",
+				"env": {
+					"CARGO_HOME": "/run/build/launchopengothic/cargo"
+				}
+			},
+			"build-commands": [
+				"cargo --offline fetch --manifest-path Cargo.toml --verbose",
+				"cargo --offline build --release --verbose",
+				"install -Dm755 ./target/release/launchopengothic -t /app/bin"
+			],
+			"sources": [
+				{
+					"type": "git",
+					"url": "https://gitlab.com/Newbyte/launchopengothic.git",
+					"tag": "v0.1",
+					"commit": "5cbfb81960639fae7af26b66d254d0240abc7554"
+				},
+				"generated-sources.json"
+			]
+		},
+		{
+			"name": "opengothic",
+			"buildsystem": "cmake",
+			"sources": [
+				{
+					"type": "git",
+					"url": "https://github.com/Try/OpenGothic.git",
+					"commit": "d5b45f9e2eba510e817085697e64ba07764cfad4",
+					"x-checker-data": {
+					    "type": "git",
+					    "tag-pattern": "^v([\\d.]+)$"
+					}
+				}
+			]
+		},
+		{
+			"name": "metainfo",
+			"buildsystem": "simple",
+			"build-commands": [
+				"install -Dm644 ${FLATPAK_ID}.desktop -t /app/share/applications",
+				"install -Dm644 ${FLATPAK_ID}.metainfo.xml -t /app/share/metainfo"
+			],
+			"sources": [
+				{
+					"type": "file",
+					"path": "io.github.Try.OpenGothic.desktop"
+				},
+				{
+					"type": "file",
+					"path": "io.github.Try.OpenGothic.metainfo.xml"
+				}
+			]
+		}
+	]
+}
