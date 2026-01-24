@@ -8,6 +8,7 @@ finish-args:
   - --socket=x11
   - --socket=pulseaudio
   - --device=dri
+  - --device=input
   - --persist=.frogatto
 
 modules:
