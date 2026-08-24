@@ -126,6 +126,21 @@
 				},
 				{
 					"type": "file",
+					"dest-filename": "thinlinc.tar.gz",
+					"only-arches": [
+						"aarch64"
+					],
+					"url": "https://www.cendio.com/downloads/clients/tl-4.21.0-4588-client-linux-dynamic-aarch64.tar.gz",
+					"sha256": "08d70ea88915127b07dd362ccdf4131bfd2f4c4c948ab88b4968ed661afff819",
+					"x-checker-data": {
+						"type": "html",
+						"url": "https://www.cendio.com/thinlinc/download/",
+						"version-pattern": "<a href=\"https://www.cendio.com/downloads/clients/tl-([\\d\\.-]*)-client-linux-dynamic-aarch64.tar.gz\" download class=\"linux-tar-armv7\" target=\"_blank\">",
+						"url-template": "https://www.cendio.com/downloads/clients/tl-${version}-client-linux-dynamic-aarch64.tar.gz"
+					}
+				},
+				{
+					"type": "file",
 					"path": "se.cendio.tlclient.metainfo.xml"
 				}
 			]
