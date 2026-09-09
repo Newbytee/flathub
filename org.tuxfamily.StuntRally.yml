@@ -71,6 +71,10 @@ modules:
     build-options:
       cflags: "-fpermissive"
       cxxflags: "-Wno-narrowing -std=c++14"
+      arch:
+        aarch64:
+          cflags: "-fPIC -DPNG_ARM_NEON_OPT=0"
+          cxxflags: "-fPIC -DPNG_ARM_NEON_OPT=0"
     sources:
       - type: archive
         url: http://downloads.sourceforge.net/freeimage/FreeImage3180.zip
@@ -119,6 +123,10 @@ modules:
     build-options:
       cxxflags: "-L/app/lib -lboost_system -lboost_thread"
       ldflags: "-L/app/lib -lboost_system -lboost_thread"
+      arch:
+        aarch64:
+          cflags: "-fPIC"
+          cxxflags: "-fPIC"
     sources:
       - type: archive
         url: https://github.com/OGRECave/ogre/archive/v13.5.1.tar.gz
@@ -142,6 +150,10 @@ modules:
     build-options:
       cxxflags: "-L/app/lib -lboost_system"
       ldflags: "-L/app/lib -lboost_system"
+      arch:
+        aarch64:
+          cflags: "-fPIC"
+          cxxflags: "-fPIC"
     sources:
       - type: archive
         url: https://github.com/MyGUI/mygui/archive/MyGUI3.4.1.tar.gz
