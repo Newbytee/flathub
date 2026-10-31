@@ -8,7 +8,7 @@
   <developer id="chat.tandem"><name>Tandem Communications Inc.</name></developer>
   <summary>Virtual office for remote teams</summary>
   <metadata_license>CC0-1.0</metadata_license>
-  <project_license>LicenseRef-proprietary</project_license>
+  <project_license>LicenseRef-proprietary=https://tandem.chat/terms</project_license>
   <url type="homepage">https://tandem.chat</url>
   <description>
     <p>Connect effortlessly with your distributed team. See who’s around, talk, and collaborate in one click.</p>
